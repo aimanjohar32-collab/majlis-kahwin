@@ -1,0 +1,243 @@
+<!doctype html><html lang="ms"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Walimatul Urus</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,400;1,9..144,600&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Layout: satu lajur panjang. Hero bertemakan pucuk rebung songket, kemudian tiga bahagian: ucapan, salam kaut, galeri kenangan. */
+:root {
+  --bg: #f2f4ee;
+  --surface: #fbfcf8;
+  --ink: #17332c;
+  --muted: #5d7068;
+  --line: #d6dccf;
+  --green: #1f4d43;
+  --on-green: #f2f4ee;
+  --gold: #a98030;
+  --gold-soft: #ece1c3;
+  --danger: #a3392f;
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1d19; --surface: #15281f; --ink: #e8eee4; --muted: #9fb3a8; --line: #2a4136;
+    --green: #2a6a5b; --on-green: #f2f4ee; --gold: #d3b061; --gold-soft: #3a3320; --danger: #e48478;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1d19; --surface: #15281f; --ink: #e8eee4; --muted: #9fb3a8; --line: #2a4136;
+  --green: #2a6a5b; --on-green: #f2f4ee; --gold: #d3b061; --gold-soft: #3a3320; --danger: #e48478;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.55;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 48px;
+}
+.wrap { max-width: 720px; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 500; text-wrap: balance; margin: 0; }
+p { margin: 0; }
+button, input, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+/* Hero */
+.hero { text-align: center; padding: 40px 0 28px; }
+.eyebrow { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+.bismillah { font-family: var(--font-display); font-style: italic; color: var(--muted); margin-top: 6px; }
+.names { margin-top: 20px; font-size: clamp(40px, 11vw, 72px); line-height: 1.02; font-style: italic; font-weight: 400; }
+.names .amp { display: block; font-size: .5em; color: var(--gold); margin: 4px 0; }
+.when { margin-top: 22px; font-size: 18px; font-weight: 500; }
+.where { color: var(--muted); margin-top: 2px; }
+.count { display: inline-flex; gap: 8px; align-items: baseline; margin-top: 18px; padding: 8px 18px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); }
+.count b { font-family: var(--font-display); font-size: 26px; font-weight: 600; color: var(--green); font-variant-numeric: tabular-nums; }
+.count[hidden] { display: none; }
+.rebung { display: block; width: 100%; height: 20px; color: var(--gold); }
+.nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 22px 0 8px; }
+.nav a { color: var(--ink); text-decoration: none; padding: 8px 16px; border: 1px solid var(--line); border-radius: 999px; font-weight: 500; font-size: 15px; background: var(--surface); }
+.nav a:hover { border-color: var(--gold); }
+
+/* Sections */
+section { padding-top: 44px; scroll-margin-top: 12px; }
+.sec-head { margin-bottom: 18px; }
+.sec-head h2 { font-size: clamp(28px, 7vw, 38px); }
+.sec-head p { color: var(--muted); margin-top: 4px; max-width: 52ch; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px; }
+.note { color: var(--muted); font-size: 14px; }
+.notice { padding: 12px 14px; border-radius: 10px; background: var(--gold-soft); font-size: 14px; }
+
+form { display: grid; gap: 12px; }
+label { display: grid; gap: 4px; font-size: 14px; font-weight: 600; }
+input[type=text], input[type=date], textarea {
+  width: 100%; padding: 11px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); font-weight: 400;
+}
+textarea { min-height: 110px; resize: vertical; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 20px; border: 0; border-radius: 10px; background: var(--green); color: var(--on-green); font-weight: 600; cursor: pointer; }
+.btn:disabled { opacity: .55; cursor: default; }
+.btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+.btn.small { padding: 6px 12px; font-size: 14px; }
+.row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.status { font-size: 14px; color: var(--muted); min-height: 1.4em; }
+.status.err { color: var(--danger); }
+
+/* Wishes */
+.wishes { display: grid; gap: 12px; margin-top: 18px; }
+.wish { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; min-width: 0; }
+.wish p.t { font-family: var(--font-display); font-size: 19px; line-height: 1.45; overflow-wrap: anywhere; white-space: pre-wrap; }
+.wish .by { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; font-size: 14px; color: var(--muted); }
+.wish .by b { color: var(--ink); font-weight: 600; }
+.linkbtn { background: none; border: 0; padding: 0; color: var(--muted); text-decoration: underline; cursor: pointer; font-size: 14px; }
+.empty { padding: 22px; text-align: center; color: var(--muted); border: 1px dashed var(--line); border-radius: 14px; }
+
+/* Salam kaut */
+.salam { display: grid; gap: 18px; grid-template-columns: 1fr; }
+@media (min-width: 560px) { .salam.hasqr { grid-template-columns: 1fr 220px; align-items: start; } }
+.acct { display: grid; gap: 12px; }
+.kv { display: grid; gap: 2px; }
+.kv span { font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+.kv strong { font-size: 18px; font-weight: 600; overflow-wrap: anywhere; }
+.kv strong.num { font-family: var(--font-display); font-size: 26px; letter-spacing: .04em; font-variant-numeric: tabular-nums; }
+.qr { width: 100%; max-width: 220px; aspect-ratio: 1; object-fit: contain; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 8px; }
+
+/* Gallery */
+.drop { display: grid; gap: 12px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; margin-top: 18px; }
+.ph { position: relative; margin: 0; border-radius: 12px; overflow: hidden; background: var(--line); aspect-ratio: 1; min-width: 0; }
+.ph button.open { display: block; width: 100%; height: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; }
+.ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ph figcaption { position: absolute; inset: auto 0 0 0; padding: 18px 10px 8px; font-size: 12px; color: #fff; background: linear-gradient(transparent, rgba(0,0,0,.65)); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; pointer-events: none; }
+.ph .del { position: absolute; top: 6px; right: 6px; }
+.lightbox { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; background: rgba(8,16,13,.92); padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
+.lightbox[hidden] { display: none; }
+.lightbox figure { margin: 0; display: grid; gap: 10px; justify-items: center; max-width: 100%; }
+.lightbox img { max-width: 100%; max-height: 78vh; border-radius: 8px; }
+.lightbox figcaption { color: #e8eee4; text-align: center; overflow-wrap: anywhere; }
+.lightbox .btn { position: absolute; top: max(12px, env(safe-area-inset-top, 0px)); right: max(12px, env(safe-area-inset-right, 0px)); }
+
+details.setup { margin-top: 24px; }
+details.setup summary { cursor: pointer; font-weight: 600; }
+details.setup form { margin-top: 14px; }
+.two { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+
+footer { margin-top: 56px; text-align: center; color: var(--muted); font-size: 14px; }
+@media (prefers-reduced-motion: no-preference) { .nav a, .btn { transition: border-color .15s, opacity .15s; } }
+</style>
+<style>body{margin:0}</style></head><body>
+
+<div class="wrap">
+  <header class="hero">
+    <p class="eyebrow">Walimatul Urus</p>
+    <p class="bismillah">Dengan nama Allah Yang Maha Pemurah lagi Maha Penyayang</p>
+    <h1 class="names"><span id="groom"></span><span class="amp">&amp;</span><span id="bride"></span></h1>
+    <p class="when" id="when"></p>
+    <p class="where" id="where"></p>
+    <div class="count" id="count" hidden><b id="days">0</b><span>hari lagi</span></div>
+    <nav class="nav" aria-label="Bahagian laman">
+      <a href="#ucapan">Ucapan</a>
+      <a href="#salam">Salam kaut</a>
+      <a href="#kenangan">Gambar kenangan</a>
+    </nav>
+  </header>
+  <svg class="rebung" aria-hidden="true" focusable="false">
+    <defs><pattern id="pr" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M0 20 L10 2 L20 20 Z" fill="currentColor"/></pattern></defs>
+    <rect width="100%" height="20" fill="url(#pr)"/>
+  </svg>
+
+  <main>
+    <section id="ucapan">
+      <div class="sec-head">
+        <h2>Ucapan &amp; doa</h2>
+        <p>Titipkan ucapan dan doa untuk pengantin melalui borang ringkas. Tidak perlu log masuk.</p>
+      </div>
+      <div class="panel row">
+        <a class="btn" id="formLink" href="#" target="_blank" rel="noopener">Tulis ucapan</a>
+        <span class="note" id="formNote"></span>
+      </div>
+    </section>
+
+    <section id="salam">
+      <div class="sec-head">
+        <h2>Salam kaut</h2>
+        <p>Kehadiran dan doa anda sudah cukup bermakna. Jika ingin menghulurkan salam kaut secara digital, butiran ada di bawah.</p>
+      </div>
+      <div class="panel salam" id="salamBox">
+        <div class="acct" id="acct"></div>
+        <div id="qrWrap" hidden><img class="qr" id="qrImg" alt="Kod QR DuitNow untuk salam kaut"></div>
+      </div>
+    </section>
+
+    <section id="kenangan">
+      <div class="sec-head">
+        <h2>Gambar kenangan</h2>
+        <p>Kongsikan gambar anda di majlis ini. Pilih cara yang paling mudah untuk anda.</p>
+      </div>
+      <div class="panel" style="display:grid;gap:12px">
+        <div class="row"><a class="btn" id="albumLink" href="#" target="_blank" rel="noopener">Muat naik ke album kongsi</a><span class="note" id="albumNote"></span></div>
+        <div class="row"><a class="btn ghost" id="waLink" href="#" target="_blank" rel="noopener">Hantar melalui WhatsApp</a><span class="note" id="waNote"></span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>Terima kasih kerana hadir dan mendoakan kami.</footer>
+</div>
+
+<script>
+/* ===== UBAH BAHAGIAN INI SAHAJA ===== */
+var CONFIG = {
+  groom: "Aiman",
+  bride: "Atiqah",
+  date: "2026-12-12",       // format: 2027-01-16
+  time: "12.00 tengah hari - 3.00 petang",
+  venue: "Homestay Ar-Rayyan",
+  bank: "Maybank",
+  accName: "Nama pemegang akaun",
+  accNo: "",                // contoh: 1234567890
+  qrImage: "qr.png",        // pautan imej kod QR DuitNow (https://...), kosongkan jika tiada
+  formUrl: "",              // pautan Google Form untuk ucapan
+  albumUrl: "",             // pautan album kongsi Google Photos atau folder Google Drive
+  whatsapp: ""              // nombor WhatsApp dengan kod negara, tanpa +, contoh: 60123456789
+};
+/* ===================================== */
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  var c = CONFIG;
+  $("groom").textContent = c.groom; $("bride").textContent = c.bride;
+  var parts = [], d = c.date ? new Date(c.date + "T00:00:00") : null;
+  if (d && !isNaN(d)) {
+    parts.push(d.toLocaleDateString("ms-MY", { weekday: "long", day: "numeric", month: "long", year: "numeric" }));
+    var t = new Date(); t.setHours(0, 0, 0, 0);
+    var n = Math.round((d - t) / 86400000);
+    $("count").hidden = n < 0; $("days").textContent = n;
+  }
+  if (c.time) parts.push(c.time);
+  $("when").textContent = parts.join(" · "); $("where").textContent = c.venue || "";
+
+  function link(id, noteId, href, missing) {
+    var a = $(id);
+    if (href) { a.href = href; } else { a.removeAttribute("href"); a.setAttribute("aria-disabled", "true"); a.style.opacity = ".5"; $(noteId).textContent = missing; }
+  }
+  link("formLink", "formNote", c.formUrl, "Pautan borang belum ditetapkan.");
+  link("albumLink", "albumNote", c.albumUrl, "Pautan album belum ditetapkan.");
+  link("waLink", "waNote", c.whatsapp ? "https://wa.me/" + c.whatsapp.replace(/\D/g, "") : "", "Nombor WhatsApp belum ditetapkan.");
+
+  var box = $("acct");
+  if (!c.accNo && !c.qrImage) box.appendChild(el("p", "note", "Butiran salam kaut belum dimasukkan."));
+  [["Bank", c.bank], ["Nama akaun", c.accName]].forEach(function (p) {
+    if (c.accNo && p[1]) { var k = el("div", "kv"); k.appendChild(el("span", null, p[0])); k.appendChild(el("strong", null, p[1])); box.appendChild(k); }
+  });
+  if (c.accNo) {
+    var k3 = el("div", "kv"); k3.appendChild(el("span", null, "No. akaun")); k3.appendChild(el("strong", "num", c.accNo)); box.appendChild(k3);
+    var b = el("button", "btn small", "Salin no. akaun"); b.type = "button";
+    b.addEventListener("click", function () {
+      function done(ok) { var o = "Salin no. akaun"; b.textContent = ok ? "Disalin" : "Tekan lama untuk salin"; setTimeout(function () { b.textContent = o; }, 1600); }
+      try { navigator.clipboard.writeText(c.accNo).then(function () { done(true); }, function () { done(false); }); } catch (e) { done(false); }
+    });
+    var r = el("div", "row"); r.appendChild(b); box.appendChild(r);
+  }
+  if (c.qrImage) { $("qrWrap").hidden = false; $("qrImg").src = c.qrImage; $("salamBox").className = "panel salam hasqr"; }
+})();
+</script>
+</body></html>
